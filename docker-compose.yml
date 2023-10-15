@@ -1,0 +1,10 @@
+services:
+  web:
+    build:
+      context: .
+      tags:
+        - "envtest"
+    container_name: envtest
+    ports:
+      - 4200:80
+    command: dev
