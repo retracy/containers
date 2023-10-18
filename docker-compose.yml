@@ -1,10 +1,16 @@
+# Run multiple containers from the same image
+# The image must be build separately using:
+#   docker build --tag envtest .
 services:
-  web:
-    build:
-      context: .
-      tags:
-        - "envtest"
-    container_name: envtest
+  web-dev:
+    image: envtest
+    container_name: envtest-dev
     ports:
       - 4200:80
     command: dev
+  web-prod:
+    image: envtest
+    container_name: envtest-prod
+    ports:
+      - 4300:80
+    command: prod
